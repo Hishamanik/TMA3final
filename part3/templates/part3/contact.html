@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static 'main.css' %}>
+    <link rel="stylesheet" href={% static 'part3/main.css' %}>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+    <title>Assignment 3</title>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="title">Hisham's Computers (Part 3)</div>
+            <div class="links">
+                <a class="link" href="../">Assignment Home</a>
+            </div>
+        </div>
+        <div class="sub-nav">
+            <div class="links">
+                <a class="link sublink" href="../part3">Back</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="contact-form-container">
+                <h3>
+                    At Hisham's computers, we value customer feedback. 
+                <!-- <span class="submit-confirm"></span>
+                <form class="contact-form" onsubmit="return false">
+                    <input class="contact-input" type="email" placeholder="Enter a email or phone #">
+                    <input class="contact-input" type="text" placeholder="Subject">
+                    <textarea class="contact-textarea"></textarea>
+                    <input type="submit" class="contact-submit">
+                </form> -->
+            </div>
+            <div style="align-self: center; margin-top: 20px;">
+                <p>If you wish to contact us directly, you can find our contact information below:</p>
+                <div>Phone: 1111-1111-1111</div>
+                <div>Address: 1 King Street, Alberta, AB</div>
+                <div>T6G 0P4</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    document.querySelector('.contact-submit').addEventListener('click', () => {
+        let valid = true
+        document.querySelectorAll('.contact-input').forEach(input => {
+            if (!input.value.length) {
+                valid = false
+            }
+        })
+        if (!document.querySelector('.contact-textarea').value) {
+            valid = false
+        }
+
+        if (!valid) {
+            document.querySelector('.submit-confirm').innerText = 'Please properly fill out the form'
+        } else {
+            document.querySelector('.submit-confirm').innerText = 'Thank you for submitting!'
+        }
+        
+    })
+</script>
+</html>

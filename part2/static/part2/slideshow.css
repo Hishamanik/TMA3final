@@ -1,0 +1,18 @@
+.slideshow-application {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.slideshow-container {
+    border: 1px solid rgb(139, 139, 139);
+}
+
+.slideshow-controls {
+    margin-top: 30px;
+}
+
+.slideshow-transition-selector {
+    margin-bottom: 20px;
+}

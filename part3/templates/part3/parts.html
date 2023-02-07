@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static 'main.css' %}>
+    <link rel="stylesheet" href={% static 'part3/main.css' %}>
+    <script type="module" src={% static 'part3/js/api.js'%}></script> 
+    <script type="module" src={% static 'part3/js/helpers.js'%}></script> 
+    <script type="module" src={% static 'part3/js/components.js'%}></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+    <title>Assignment 3</title>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="title">Hisham's Computers (Part 3)</div>
+            <div class="links">
+                <a class="link" href="../">Assignment Home</a>
+            </div>
+        </div>
+        <div class="sub-nav">
+            <div class="links">
+                <a class="link sublink" href="../part3">Back</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="store-banner">
+                <h2>Part Viewer</h2>
+                <div class="store">
+                    <div class="store-selector">
+                        <div class="store-selector-controls">
+                            <select id="category-select">
+                                <option value="cpu">CPU</option>
+                                <option value="graphics">Graphics</option>
+                                <option value="ram">Ram</option>
+                                <option value="hardDrive">Hard Drives</option>
+                                <option value="os">OS</option>
+                                <option value="display">Display</option>
+                                <option value="soundCard">Sound Cards</option>
+                            </select>
+                            <button id="fetch-components-btn">Get Components</button>
+                        </div>
+                        <div class="store-selector-components">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

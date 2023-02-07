@@ -1,0 +1,124 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto Slab', sans-serif;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background-color: #414a7a;
+    padding: 2px 5px;
+    box-shadow: 4px 5px 8px #cecece;
+    color: rgb(240, 240, 240);
+    padding: 5px 15px;
+}
+
+.sub-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 30px;
+    background-color: #9e9e9e;
+    padding: 2px 5px;
+    margin-bottom: 5px;
+    margin-top: -5px;
+    box-shadow: 4px 5px 8px #cecece;
+    color: rgb(240, 240, 240);
+    padding: 5px 15px;
+}
+
+.title {
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.links .link {
+    font-size: 18px;
+    color: rgb(240, 240, 240);
+    text-decoration: none;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.links .link.active {
+    color: rgb(190, 190, 190);
+    pointer-events: none;
+}
+
+.links .link:hover {
+    color: rgb(190, 190, 190);
+}
+
+.links .sublink {
+    margin: 0 10px;
+}
+
+.links .sublink.right {
+    position: absolute;
+    right: 0;
+}
+
+.content {
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+}
+
+.documentation {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-self: center;
+}
+
+.documentation .documentation-title {
+    font-size: 24px;
+    margin: 7px 5px;
+    align-self: center;
+}
+
+.documentation-section {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+}
+
+.documentation-section .documentation-subtitle {
+    font-size: 30px;
+}
+
+.documentation-divider {
+    width: 90%;
+    height: 1px;
+    background-color: rgb(139, 139, 139);
+    margin-top: 30px;
+    margin-bottom: 50px;
+    align-self: center;
+}
+
+.documentation-subdivider {
+    width: 80%;
+    height: 1px;
+    background-color: rgb(139, 139, 139);
+    align-self: center;
+    margin: 20px 0;
+
+}

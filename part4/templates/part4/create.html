@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static 'main.css' %}>
+    <link rel="stylesheet" href={% static 'part4/main.css' %}>
+    <script type="module" src={% static 'part4/js/api.js'%}></script> 
+    <script type="module" src={% static 'part4/js/create.js'%}></script> 
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+    <title>Assignment 1</title>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            
+            <div class="title"> Hisham's Computers (Part 4)</div>
+            <div class="links">
+                <a class="link" href="../">Assignment Home</a>
+            </div>
+        </div>
+    <div class="main">
+        <div class="content">
+           <div class="user-form">
+               <div class="user-form-container">
+                   <h2>Create an Account</h2>
+                   <span id="error"></span>
+                   <div class="user-name-input">
+                        <div class="user-input">
+                            <label for="username">Enter your First Name</label>
+                            <input type="text" id="first-name" class="user-input" name="username">
+                        </div>
+                        <div class="user-input">
+                            <label for="username">Enter your Last Name</label>
+                            <input type="text" id="last-name" class="user-input" name="username">
+                        </div>
+                   </div>
+                   <div class="user-input">
+                        <label for="username">Enter your Username</label>
+                        <input type="text" id="user-name" class="user-input" name="username">
+                   </div>
+                    <div class="user-input">
+                        <label for="username">Enter your Email</label>
+                        <input type="email" id="email" class="user-input" name="username">
+                    </div>
+                   <div class="user-input">
+                        <label for="password">Enter your Password</label>
+                        <input type="password" id="password" class="user-input" name="password">
+                   </div>
+                   <div class="user-controls">
+                        <input type="submit" id="create" class="user-submit">
+                        <a href="./login">Have an Account? Log In</a>
+                   </div>
+               </div>
+           </div>
+        </div>
+    </div>
+</body>
+</html>

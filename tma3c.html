@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static 'main.css' %}>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+    <title>Assignment 3</title>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="title">COMP 466 Assignment 3</div>
+            <div class="links">
+                <a class="link" href="part1">Visit Counter</a>
+                <a class="link" href="part2">Slideshow Application</a>
+                <a class="link" href="part3">Hisham's Computers (Part 3)</a>
+                <a class="link" href="part4">Computer Store (Part 4)</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="documentation">
+                <div class="documentation-title">Al Hisham Anik (3587629) - COMP 466</div>
+                <div class="documentation-title">Assignment 3</div>
+                <div class="documentation-title">Begin Date: 1st October 2022</div>
+                <div class="documentation-title">End Date: 30th January 2023</div>
+                <div class="documentation-title">Est Hours: 120</div>
+                <div class="documentation-title"><a class="link" href="http://18.206.202.221:8000/">Server Link: </a> http://18.206.202.221:8000/ </div>
+                <div class="documentation-title">Please email me to get the server up at your convinent time. Thank you!</div>
+
+
+                <span class="documentation-divider"></span>
+                <hr>
+                <div class="documentation-section">
+                    <div class="documentation-subtitle">Introduction</div>
+                    <!-- <span class="documentation-subdivider"></span> -->
+                    <p>
+                        The final assignment of COMP466 required me to develop 4 web applications. The first of these
+                        web applications is a frontend application that would use cookies to track how many times a user visited the 
+                        application, in addition to displaying their IP address and timezone.
+                    </p>
+                    <p>
+                        The second web application is similiar to assignment 1. This application would run a slideshow, using a 
+                        list of pictures stored on the server. It includes buttons to start and stop the slideshow, and change the
+                        transition from a sequential ordering to a random one.
+                    </p>
+                    <p>
+                        The third and fourth parts revolve around building a computer store. This store contains a multitude of 
+                        features. Users are able to browse existing models, look up specific parts (such as graphics and Cpus) and then select
+                        and customize that computer. The customization allows a user to change any number of components to either more expensive or different
+                        ones. The price is then updated dynamically as a user modifies their system. 
+                    </p>
+                    <p>
+                        Finally, a user can add a computer to a cart, which can be removed.  
+                        In part 3, the design required me to not use a database, but rather hardcoded values. Part 4 extended this basic system by adding
+                        a database, user authentication, and orders.
+                    </p>
+                </div>
+                <div class="documentation-section">
+                    <span class="documentation-divider"></span>
+                    <div class="documentation-subtitle">Part 1: Cookie Counter</div>
+
+                    <p> My Interpretation of the assignment project and requirements: So, I am suppose to create a web application to tracks user's IP address 
+                        and display the number of times the same user visits the webpage at one time and also make the location of the IP address of the user visible.</p>
+                    <p> Guide for users to set up, to run, and to use the web application: Setup the Djanago environment as directed in the introduction section if you are 
+                        running the web application locally or simply navigate through the page buttons if viewing through the web server.
+
+                    </p>  
+                    <p> Analysis and design of the web application: I used JS script to make a external call to an open source which retrieves an user IP. Library is also 
+                        built to track and extract the user's timezone. Finally, store a cookie containing a simple counter so every time a user revisits/refresh the page, cookie is 
+                        checked then created one if not present, and then incremented the counter which shows as the number of times visited by the user.</p> 
+                    <p> Comments: The first of the assignment is kind of related to Javascript and HTML which was introduced in the part part of the course.</p>
+
+                </div>
+                <div class="documentation-section">
+                    <span class="documentation-subdivider"></span>
+                    <div class="documentation-subtitle">Part 2: Slideshow</div>
+                    
+                    <p> My Interpretation of the assignment project and requirements: The second web application is similiar to assignment 1. This application runs a slideshow, using a list of 
+                        pictures stored on the server. It includes buttons to start and stop the slideshow also the user can change the transition animation of slideslow.</p>
+
+                    <p> Guide for users to set up, to run, and to use the web application: Setup the Djanago environment as directed in the introduction section if you are running the web application 
+                        locally or simply navigate through the page buttons if viewing through the web server.</p>
+
+                    <p> Analysis and design of the web application: I have defined a seperate REST api which handles interactions with images. This decouples the views from the actual fetching of data. 
+                        Again, a single Django view is defined which returns a basic HTML page. This page contains a couple buttons which are made functional by another additional JS script. The JS setInterval / clearIntervals 
+                        function is used to control stopping and starting the slideshow. When a new image is selected, two get requests are sent to the backend, which fetches the image meta data and downloads the image itself.</p>
+
+                    <p> Comments: This part of the assignment is similar to the part 3 of the Assignment 1 slideshows.</p>
+                    
+                <div class="documentation-section">
+                    <span class="documentation-divider"></span>
+                    <div class="documentation-subtitle">Part 3: Hisham's Computer</div>
+
+                    <p> Guide for users to set up, to run, and to use the web application: Setup the Djanago environment as directed in the introduction section if you are running the web application locally or simply navigate through the page 
+                        buttons if viewing through the web server.</p>
+                    <p> Analysis and design of the web application: For part 3, I attempted to model the UX flow of Amazon. On Amazon, there exists a list of products that you can select for more information. Once a user has selected a product, 
+                        they can sometimes customize it (change color, size etc). Finally, users can add items to their cart, and then are able to view their cart. Items in their cart can be deleted, and the price updates dynamically. Since part 
+                        3 required me to hardcode data rather than use a DB, I kept the data within a JSON file that I read via a set of functions in api/api.py. This was the only section of my codebase interacting with data, making the switch 
+                        to a DB in part 4 much quicker and simplier.</p>
+
+                    <p> Research: The assignment required to look at some online stores and analyze the layout. I went to Amazon.ca and noticed that there is a search bar and filter type of catagory menu with different category options. The home page contains categories and display 
+                        items and a list of categories along with welcome messages and naviagtion bar to naviate to all other options in the website. When hovering over one of the left menu items, it then display subcategories of the hovered category each with other subcategories. 
+                        This design shows the intelligence down by the developer which allows the user to their desired product with the least clicks possible to remove confusion about where to find it and having to switch from page to page to find 
+                        the desired products. When I ignore the subcategories and click the components category, it loads a new page but display all if the expandable submenu items and their categories from the previous page as a vertical menu on the 
+                        left side of the page. On the component page, the search bar and menu at the top of the page remain there like on the first page.The bar with the search and logo and sign in/registration and cart buttons is fixed to the top of the screen for constant access. 
+                        So to summarize, the layout of Amazon.ca is consistent accross each page with easy follow and easy access which people with very minimal intelligence can use also. </p>
+                        
+                    <center> <img src={% static 'part3/amazon.png' %} width="800" height="800"> </center>
+                    
+                        <p> Analising the functionality and technical aspects: When I click on a item, there is a new window that appears with images of the product, the name of the product, brief bullet points about significant specifications 
+                        of the unit, the price, a complete list of specs, reviews and a button to add it to your cart When I click add to cart, the item is added to a cart that is saved as a cookie because it does not require me to make 
+                        an account or log in and if I leave the site and come back, the cart is saved and won't be lost.  It is broken up into 3 steps, first, confirming your shipping address, displaying the one on record and a button to change it. Second, is the payment method 
+                        displaying the current information on record with a box to enter a gift card or promo code and an option to change the price, prime delivery option, quantity and gift options. Below that is a button to place my order and it's order total briefed on the 
+                        right side which also has a button to order, below that is the summary of the price of items, delivery charge, estimated taxes and the added total.</p>
+                    
+                    <p> My designed website has the following relation which is shown in the below flow chart:</p>
+
+                <center> <img src={% static 'part3/part3.png' %} width="800" height="700"> </center>
+                    
+
+                </div>
+                <div class="documentation-section">
+                    <span class="documentation-divider"></span>
+                    <div class="documentation-subtitle">Part 4</div>
+                    <p>
+                        My Interpretation of the assignment project and requirements: Finally, a user can add a computer to a cart, which can also be removed. In part 3 design I used rather hardcoded values as stated in the Assignment description but in Part 4 I had to extend this basic system by adding a database, user authentication, and orders.
+                    </p>
+
+                    <p>
+                        The specification table contains references to components, which is an abstract model (non-existent in SQL). 
+                        Instead, there is an individual table for each component, which is referenced by the computer spec. 
+                    <!-- <img src={% static 'part4/P4_ER.PNG' %} width="1200" height="800"> -->
+                    <img src={% static 'part4/part_4UML.png' %} width
+                    ="1200" height="800">
+                    <p>
+                        In this part, I first changed up api.py to use Django's QuerySet API to interact with the models. After replacing 
+                        the old code interacting with the JSON file, I added functionality for creating a computer which is assigned to a user. This would
+                        allow me to populate a user's cart and order.
+                    </p>
+                    <p>
+                        For authentication, I used Django's build in system, which uses the User model. This required me to develop login/signup screens. 
+                        Once a user logs in, they can access all screens in part 4. If a user is not logged in, requests to any path other than /login
+                        or /create are redirected to the login page.
+                    </p>
+                    <p>
+                        The final flow of the website is shown below:
+                    </p>
+                    <!-- <img src={% static 'part4/p4.PNG' %} width="1200" height="800"> -->
+                    <center> <img src={% static 'part4/part4_flow.png' %} width="800" height="800"> </center>
+                </div>
+                <div class="documentation-section">
+                    <span class="documentation-subdivider"></span>
+                    <div class="documentation-subtitle">How to Use & Misc</div>
+                    
+                    <p>
+                        Use the top navigation bar to navigate between each of the assignments (parts 1-4). There are instructions on how to 
+                        use the computer store in parts 3 and 4. For a test user, you can use the following:
+                    </p>
+                    <p>
+                        Username: Test001
+                    </p>
+                    <p>
+                        Password: 12345
+                    </p>
+
+                    <p>If you have any questions feel free to email me.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static 'main.css' %}>
+    <link rel="stylesheet" href={% static 'part2/slideshow.css' %}>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+    <script type="text/javascript" src={% static 'part2/main.js' %}></script>
+    <title>Assignment 3</title>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="title">Slideshow Application</div>
+            <div class="links">
+                <a class="link" href="../">Assignment Home</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="slideshow-application">
+                <h2>Slideshow Application</h2>
+                <div class="slideshow-transition-selector">
+                    <label for="transitions">Select a transition:</label>
+                    <select id="transition-selector" name="transitions">
+                        <option value="seq">Sequential</option>
+                        <option value="rand">Random</option>
+                    </select>
+                    <button id="start-show">Start Show</button>
+                    <button id="stop-show">Stop Show</button>
+                </div>
+                <canvas id="canvas" class="slideshow-container" width="800" height="500">
+                    Your browser does not support Canvas
+                </canvas>
+                <div id="caption"></div>
+                <div class="slideshow-controls">
+                    <button id="prev-btn" value="previous">Previous</button>
+                    <button id="next-btn" value="next">Next</button>
+                    <button id="rand-btn" value="random">Random</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

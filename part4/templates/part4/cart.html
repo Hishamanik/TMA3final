@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static 'main.css' %}>
+    <link rel="stylesheet" href={% static 'part4/main.css' %}>
+    <script type="module" src={% static 'part4/js/helpers.js'%}></script>
+    <script type="module" src={% static 'part4/js/cart.js'%}></script> 
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+    <title>Assignment 3</title>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="title"> Hisham's Computers (Part 4)</div>
+            <div class="links">
+                <a class="link" href="../">Assignment Home</a>
+            </div>
+        </div>
+        <div class="sub-nav">
+            <div class="links">
+                <a class="link sublink" href="http://localhost:8000/part4">Back</a>
+            </div>
+        </div>
+        <div class="content">
+            <h2>Cart</h2>
+            <div class="computer-list">
+                <div class="cart-price">Total Price: <span>${{ total_price }}</span></div>
+                <button class="order-btn" id="order">Order Items</button>
+                {% if cart_info %}
+                    {% for computer in cart_info %}
+                        <div class="computer-list-item" id={{computer.id}}>
+                            <div class="computer-list-info">
+                                <div class="computer-list-title">{{computer.name}}</div>
+                                <div class="computer-list-price">${{computer.price}}</div>
+                            </div>
+                            <div class="computer-list-details">
+                                <div class="computer-list-details-section">
+                                    <div class="computer-detail">CPU: {{computer.components.cpu.name}}</div>
+                                    <div class="computer-detail">Graphics: {{computer.components.graphics.name}}</div>
+                                </div>
+                                <div class="computer-list-details-section">
+                                    <div class="computer-detail">Hard Drive: {{computer.components.hardDrive.name}}</div>
+                                    <div class="computer-detail">Ram: {{computer.components.ram.name}}</div>
+                                </div>
+                                <div class="computer-list-details-section">
+                                    <div class="computer-detail">OS: {{computer.components.os.name}}</div>
+                                    <div class="computer-detail">Display: {{computer.components.display.name}}</div>
+                                </div>
+                                <div class="computer-list-details-section">
+                                    <div class="computer-detail">Sound Card: {{computer.components.soundCard.name}}</div>
+                                </div>
+                            </div>
+                            <div class="computer-list-controls">
+                                <a class="computer-list-btn remove">Remove from Cart</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No items are in your cart</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static 'main.css' %}>
+    <link rel="stylesheet" href={% static 'part3/main.css' %}>
+    <script type="module" src={% static 'part3/js/helpers.js'%}></script> 
+    <script type="module" src={% static 'part3/js/computers.js'%}></script> 
+    {{ computers|json_script:"computers" }}
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+    <title>Assignment 3</title>
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="title">Hisham's Computers (Part 3)</div>
+            <div class="links">
+                <a class="link" href="../">Assignment Home</a>
+            </div>
+        </div>
+        <div class="sub-nav">
+            <div class="links">
+                <a class="link sublink" href="../part3">Back</a>
+            </div>
+        </div>
+        <div class="content">
+            <div class="computer-list">
+                {% if computer_info %}
+                    {% for info in computer_info %}
+                        <div class="computer-list-item" id={{info.computer.id}}>
+                            <div class="computer-list-info">
+                                <div class="computer-list-title">{{info.computer.name}}</div>
+                                <div class="computer-list-price">${{info.computer.price}}</div>
+                            </div>
+                            <div class="computer-list-details">
+                                <div class="computer-list-details-section">
+                                    <div class="computer-detail">CPU: {{info.components.cpu.name}}</div>
+                                    <div class="computer-detail">Graphics: {{info.components.graphics.name}}</div>
+                                </div>
+                                <div class="computer-list-details-section">
+                                    <div class="computer-detail">Hard Drive: {{info.components.hardDrive.name}}</div>
+                                    <div class="computer-detail">Ram: {{info.components.ram.name}}</div>
+                                </div>
+                                <div class="computer-list-details-section">
+                                    <div class="computer-detail">OS: {{info.components.os.name}}</div>
+                                    <div class="computer-detail">Display: {{info.components.display.name}}</div>
+                                </div>
+                                <div class="computer-list-details-section">
+                                    <div class="computer-detail">Sound Card: {{info.components.soundCard.name}}</div>
+                                </div>
+                            </div>
+                            <div class="computer-list-controls">
+                                <a class="computer-list-btn" href="./customize/{{info.computer.id}}">Customize</a>
+                                <a class="computer-list-btn add">Add to Cart</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No computers are avaliable</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
